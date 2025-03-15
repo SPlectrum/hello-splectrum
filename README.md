@@ -1,2 +1,3 @@
-# hello-world
-Initial exploration of process flow and runtime.
+# hello-splectrum
+
+The initial POC implementing the request context and flow for some simple Hello World type functionality.
