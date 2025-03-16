@@ -1,4 +1,4 @@
-# Action and Execution Context Message Format
+# Action and Execution Context Message Illustration
 
 Illustration of the message format for a naive execution flow which works when executed by *spl* from the command line.
 
