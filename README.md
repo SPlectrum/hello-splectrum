@@ -15,8 +15,8 @@ Aim to create a deployable asset straight away using [forever or pm2](https://ww
 
 ---
 
-This initial POC contains the journey that leads to the MVP of wrapper of SPlectrum. 
-The wrapper is named *spl*. 
+This initial POC contains the journey that leads to the MVP of wrapper of SPlectrum.  
+The wrapper is named *spl*.  
 The MVP creates an installable asset with the right structure so that SPlectrum can be created within through the use of packages.
 
 ---
