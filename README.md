@@ -13,6 +13,9 @@ The POC aims to cover the following through a number of iterations:
 Implementation in node.js.  
 Aim to create a deployable asset straight away using [forever or pm2](https://www.geeksforgeeks.org/how-to-run-a-node-js-application-permanently/?ref=ml_lbp).  
 
+---
 
+This initial POC contains the journey that leads to the MVP of wrapper of SPlectrum. 
+The MVP creates an installable asset with the right structure so that SPlectrum can be created within through the use of packages.
 
-
+---
