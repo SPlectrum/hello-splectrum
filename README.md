@@ -10,7 +10,12 @@ The POC aims to cover the following through a number of iterations:
 
 ---
 
-
+This is in prepration to achieve MVP for SPlectrum:
+ - installable exe with example command
+ - it should update an existing install
+ - create the main folder structure
+ - implement runtime with sessions
+ - use SPlectrum actions for install
 
 ---
 
