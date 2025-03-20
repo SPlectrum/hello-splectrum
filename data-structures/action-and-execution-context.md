@@ -11,41 +11,38 @@ See the next block below for the same naive flow embedded in an execution contex
 // the commandline input gets parsed
 {
   "headers": [
-    "action": "command/parse",
-    "status": "pending" ],
+    { "action": "command/parse" },
+    { "status": "pending" } ],
   "value": "spl hello-splectrum my friends"
 }
 {
   "headers": [
-    "action": "command/parse",
-    "status": "completed" ],
-  "value": {
-    "headers": [
-      "action": "action/hello-splectrum",
-      "status": "pending" ],
-    "value": { "person": "my friends" }
-  }
-}
-
-// The action is then executed
+    { "action": "command/parse" },
+    { "status": "complete" } ],
+  "value": { "person": "my friends" }
+ }
 {
   "headers": [
-    "action": "action/hello-splectrum",
-    "status": "pending" ],
+    { "action": "action/hello-splectrum" },
+    { "status": "pending" } ],
   "value": { "person": "my friends" }
 }
 {
   "headers": [
-    "action": "action/hello-splectrum",
-    "status": "completed" ],
+    { "action": "action/hello-splectrum" },
+    { "status": "completed" } ],
   "value": "Hello from SPlectrum to my friends !"
 }
-
-// The result is returned to the console
 {
   "headers": [
-    "action": "console/log",
-    "status": "pending" ],
+    { "action": "console/log" },
+    { "status": "pending" } ],
+  "value": "Hello from SPlectrum to my friends !"
+}
+{
+  "headers": [
+    { "action": "console/log" },
+    { "status": "completed" } ],
   "value": "Hello from SPlectrum to my friends !"
 }
 ```
