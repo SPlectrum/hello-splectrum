@@ -29,3 +29,15 @@ The wrapper is named *spl*.
 The MVP creates an installable asset with the right structure so that SPlectrum can be created within through the use of packages.
 
 ---
+
+Self-extracting exe with install actions:   
+Using 7zip to achieve this - from commandline.  
+https://superuser.com/questions/160672/what-is-7-zip-s-command-line-argument-to-create-a-self-extracting-archive  
+
+```
+7z a -sfx spl.exe ./spl
+```
+Still need to test config.txt for post extraction action.  
+It creates a subfolder on extraction.
+
+---

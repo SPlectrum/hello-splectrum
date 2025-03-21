@@ -10,39 +10,27 @@ See the next block below for the same naive flow embedded in an execution contex
 
 // the commandline input gets parsed
 {
-  "headers": [
-    { "action": "command/parse" },
-    { "status": "pending" } ],
+  "headers": { "action": "command/parse", "status": "pending" },
   "value": "spl hello-splectrum my friends"
 }
 {
-  "headers": [
-    { "action": "command/parse" },
-    { "status": "complete" } ],
+  "headers": { "action": "command/parse", "status": "complete" },
   "value": { "person": "my friends" }
  }
 {
-  "headers": [
-    { "action": "action/hello-splectrum" },
-    { "status": "pending" } ],
+  "headers": { "action": "action/hello-splectrum", "status": "pending" },
   "value": { "person": "my friends" }
 }
 {
-  "headers": [
-    { "action": "action/hello-splectrum" },
-    { "status": "completed" } ],
+  "headers": { "action": "action/hello-splectrum", "status": "complete" },
   "value": "Hello from SPlectrum to my friends !"
 }
 {
-  "headers": [
-    { "action": "console/log" },
-    { "status": "pending" } ],
+  "headers": { "action": "console/log", "status": "pending" },
   "value": "Hello from SPlectrum to my friends !"
 }
 {
-  "headers": [
-    { "action": "console/log" },
-    { "status": "completed" } ],
+  "headers": { "action": "console/log", "status": "complete" },
   "value": "Hello from SPlectrum to my friends !"
 }
 ```
@@ -51,26 +39,18 @@ See the next block below for the same naive flow embedded in an execution contex
 // The flow below gives some indication of how request execution interacts with the execution context.  
 // This is a simple illustration, the actual setup will use a proper pipeline definition in the header.
 {
-  "headers": [
-    "action": "execute/next" ],
+  "headers": { "action": "execute/next" },
   "value": {
-    "headers": [
-      "action": "command/parse",
-      "status": "pending" ],
-    "value": "spl hello-splectrum my friends"
+    "headers": { "action": "command/parse", "status": "pending" },
+    "value": "spl hello-splectrum my friends" 
   }
 }
 {
-  "headers": [
-    "action": "execute/next" ],
+  "headers": { "action": "execute/next" },
   "value": {
-    "headers": [
-      "action": "command/parse",
-      "status": "set-command" ],
+    "headers": { "action": "command/parse", "status": "set-command" },
     "value": {
-      "headers": [
-        "action": "action/hello-splectrum",
-        "status": "pending" ],
+      "headers": { "action": "command/hello-splectrum", "status": "pending" },
       "value": { "person": "my friends" }
     }
   }
@@ -78,31 +58,19 @@ See the next block below for the same naive flow embedded in an execution contex
 
 // the execution context prepares the request by setting an execution plan
 {
-  "headers": [
-    "action": "exec/next"
-  ]
+  "headers": { "action": "exec/next" },
   "value": {
-    "headers": [
-      "action": "action/hello-splectrum",
-      "status": "pending" ],
+    "headers": { "action": "action/hello-splectrum", "status": "pending" },
     "value": { "person": "my friends" }
   }
 }
 
 // this returns a subsequent action upon completion
 {
-  "headers": [
-    "action": "execute/next" ],
+  "headers": { "action": "execute/next" },
   "value": {
-    "headers": [
-      "action": "action/hello-splectrum",
-      "status": "set-command" ],
-    "value": {
-      "headers": [
-        "action": "console/log",
-        "status": "pending" ],
-      "value": "Hello from SPlectrum to my friends !"
-    }
+    "headers": { "action": "action/hello-splectrum", "status": "completed },
+    "value": { "Hello from SPlectrum to my friends !" }
   }
 }
 
@@ -111,21 +79,16 @@ See the next block below for the same naive flow embedded in an execution contex
   "headers": [
     "action": "exec/next" ],
   "value": {
-    "headers": [
-      "action": "console/log",
-      "status": "pending" ],
+    "headers": { "action": "console/log", "status": "pending" },
     "value": "Hello from SPlectrum to my friends !"
   }
 }
 
 // action completed - request completed
 {
-  "headers": [
-    "action": "exec/next" ],
+  "headers": { "action": "exec/next" },
   "value": {
-    "headers": [
-      "action": "console/log",
-      "status": "complete" ],
+    "headers": { "action": "console/log", "status": "complete" },
     "value": "Hello from SPlectrum to my friends !"
   }
 }

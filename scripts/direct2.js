@@ -1,5 +1,3 @@
-//const process_req = require('process');
-
 var person = process.argv.slice(2).join(" ");
 console.log(`spl  ${person}`);
 
@@ -13,7 +11,7 @@ var actions = {
     input.headers.status = "completed";
     return input 
   },
-
+ 
   "action/hello-splectrum": function (input) { 
     input.value = `Hello from SPlectrum to ${input.value} !`
     input.headers.status = "completed";
