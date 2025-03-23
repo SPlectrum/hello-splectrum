@@ -41,3 +41,10 @@ Still need to test config.txt for post extraction action.
 It creates a subfolder on extraction.
 
 ---
+
+The script folder contains the implementation in steps:
+1. direct.js and direct2.js are two different steps of direct execution.
+2. execution.js illustrates the execution context in single file execution.
+3. the spl folder contains all for a filewatcher executor implementation.
+
+---
