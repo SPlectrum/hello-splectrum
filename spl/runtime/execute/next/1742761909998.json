@@ -1,0 +1,1 @@
+{"headers":{"action":"execute/set-pipeline","status":"executing"},"value":{"headers":{"action":"command/hello-splectrum","status":"new-pipeline","pipeline":[{"headers":{"action":"action/hello-splectrum"}},{"headers":{"action":"console/log"}}]},"value":{"person":"everybody"}}}

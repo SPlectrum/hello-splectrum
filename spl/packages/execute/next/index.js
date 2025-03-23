@@ -2,7 +2,10 @@
 // executes next action and sets next execute command
 
 function execute_next ( input ) {
-    input.value = actions[input.value.headers.action](input.value);
+
+    var action = input.value.headers.action;
+    const executor = require(`../../../packages/${action}`).default;
+    input.value = executor(input.value);
     switch(input.value.headers.status){
         case "new-command": input.headers.action = "execute/set-command"; break;
         case "new-pipeline": input.headers.action = "execute/set-pipeline"; break;
