@@ -2,7 +2,7 @@
 const fs = require('fs'); 
 
 fs.watch("./runtime/queue", (eventType, filename) => { 
-  console.log("\nWatcher has triggered: ", eventType, " ", filename, " !!!"); 
+//   console.log("\nWatcher has triggered: ", eventType, " ", filename, " !!!"); 
   if (fs.existsSync(`./runtime/queue/${filename}`)&&eventType=="rename") {
     console.log("\nThe file", filename, "was added to the queue!"); 
     var requestRaw = fs.readFileSync(`./runtime/queue/${filename}`);
@@ -14,8 +14,8 @@ fs.watch("./runtime/queue", (eventType, filename) => {
     console.log(output);
     output = JSON.stringify(output);
 
-    fs.writeFileSync(`./runtime/${action}/${filename}`, output);
-    fs.writeFileSync(`./runtime/processed/${filename}`, requestRaw);
+    fs.writeFile(`./runtime/${action}/${filename}`, output, (err) => { if (err) throw err; console.log(`writing to execute ./runtime/${action}/${filename}`); });
+    fs.writeFile(`./runtime/processed/${filename}`, requestRaw, (err) => { if (err) throw err; console.log(`writing to processed ./runtime/processed/${filename}`); });
 
     console.log("Action being executed: " + action);
     if(action!="execute/complete") {
@@ -27,7 +27,7 @@ fs.watch("./runtime/queue", (eventType, filename) => {
 
     }
 
-    fs.unlinkSync(`./runtime/queue/${filename}`)
+    fs.unlink(`./runtime/queue/${filename}`,(err) => { if (err) throw err; console.log(`deleting ./runtime/queue/${filename}`); })
   }
 
 }); 
